@@ -48,3 +48,71 @@ plano de controle -> define as e repassa regras de software para a rede
 
 Ncast -> mensagem para qualquer um de um grupo
 
+----------------------------------------------------
+Algoritmos de Roteamento:
+
+1 - Realiza a descoberta de um bom caminho (menor custo)
+2 - Passivel a intervenção politica (Regras de negocios)
+
+Sempre menor custo
+Custos:
+-Largura de banda->quanto maior melhor(taxa para mandar dados)
+-Latencia
+-Saltos
+
+
+Classificado:
+quanto a execução:
+    algoritimo de roteamento global:
+        i-Algoritms de estado de enlase(Link-state: LS) -> Usa o broadcast global
+            OSPF - LINK- STATE
+    algoritimos desentralizados: 
+        RIP
+quanto a operação:
+    algoritimos de roteamentos estaticos:
+        o repasse não muda sem ser manualmente
+    algoritimos de roteamentos dinamicos:
+        o repasse muda dinamicamente 
+
+quanto a sensibilidade:
+    algoritimos sensiveis a carga:
+        algoritmos sensiveis a carga olha o trafico da rede para fazer a tabela de repasse
+    algoritimos insensiveis a carga:
+        não verifica a carga para fazer a tabela de repasse
+
+LS-> O(N²)
+    Usado em rede pequenas 
+    DYSKTRA -> algoritmo que usa uma busca em profundidade para achar o menor caminho
+
+Algoritimo de vetor de distancia (DV) ou HEAP->
+    Trata-se de um algoritimo 
+    1-iterativo
+    2-assincrono
+    3-distribuido
+
+    cada roteador faz a propagação de cada tabela 
+    ele compara com os vizinhos
+    é feito de 30 em 30 segundos
+    faz a convergencia com os repasses e atualizam
+    15 SALTOS é o limite
+    custos de enlaces até seus vizinhos
+    as informações desses vizinhos
+
+DV x LS
+    No DV cada nó conversa apensa com seus vizinhos
+
+    No LS, informações são necessarios 
+
+Na internet utiliza o BGP ->
+    na internet não vale a pena mandar um brodcast para todo mundo,
+
+roteamento hieraquico:
+    -escala
+    -autonomia administrativa
+    sistema autonomo = designados pelo ICANN
+
+roteamento intra AS: OSPF
+    acronimo para open shortest path first
+    -é um protocolo LS
+    provedor de serviço contem um AS
+    AS -> formados de um conjuntos de roteadirs
